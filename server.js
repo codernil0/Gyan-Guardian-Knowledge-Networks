@@ -47,7 +47,7 @@ db.exec(`
 app.use(helmet({ crossOriginResourcePolicy: { policy: "same-site" } }));
 app.use(express.json({ limit: "1mb" }));
 app.use(cookieParser());
-app.use("/uploads", express.static(UPLOAD_DIR, { fallthrough: false }));
+app.use("/uploads", requireAuth, express.static(UPLOAD_DIR, { fallthrough: false }));
 app.use(express.static(path.join(__dirname, "public")));
 
 const authLimiter = rateLimit({ windowMs: 15 * 60 * 1000, limit: 30, standardHeaders: "draft-7", legacyHeaders: false });
