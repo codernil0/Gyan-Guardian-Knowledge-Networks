@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101b35">
+  <meta name="description" content="Gyan Guardian Knowledge Networks — learning resources for every student.">
+  <title>Gyan Guardian Knowledge Networks</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#"><span class="brand-mark">GG</span><span>Gyan Guardian<small>KNOWLEDGE NETWORKS</small></span></a>
+    <nav><a href="#library">Learning library</a><a href="#about">About</a></nav>
+    <div class="account" id="accountArea"><button class="btn btn-light" id="openLogin">Sign in</button><button class="btn btn-primary" id="openRegister">Join free</button></div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <span class="eyebrow"><span class="dot"></span> YOUR LEARNING COMPANION</span>
+        <h1>Learn with clarity.<br><em>Grow with confidence.</em></h1>
+        <p>A focused learning space for school students. Find study notes, helpful PDFs and video lessons — organised for your class.</p>
+        <div class="hero-actions"><button class="btn btn-primary btn-large" id="heroJoin">Explore learning <span>↗</span></button><a class="text-link" href="#library">Browse resources <span>→</span></a></div>
+        <div class="hero-proof"><div class="avatars"><span>9</span><span>10</span><span>11</span><span>12</span></div><span>Resources for classes 9–12 and beyond</span></div>
+      </div>
+      <div class="hero-art" aria-label="Illustration of books and learning">
+        <div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div>
+        <div class="book book-back"></div><div class="book book-front"><span>KNOWLEDGE</span><strong>Opens<br>every door.</strong><i>GG / 01</i></div>
+        <div class="floating-note note-top">✦ &nbsp; Learn at your pace</div><div class="floating-note note-bottom">↗ &nbsp; Your next chapter starts here</div>
+      </div>
+    </section>
+
+    <section class="stats">
+      <div><strong>09–12</strong><span>School classes</span></div><div><strong>Anytime</strong><span>Learn at your pace</span></div><div><strong>One place</strong><span>Notes, PDFs & videos</span></div>
+    </section>
+
+    <section class="section" id="library">
+      <div class="section-heading"><div><span class="eyebrow">THE RESOURCE LIBRARY</span><h2>Your class. Your learning path.</h2><p>Sign in to access the learning materials shared by your administrator.</p></div>
+        <div class="filter-wrap"><label for="classFilter">Choose class</label><select id="classFilter"><option>All</option><option>Class 9</option><option>Class 10</option><option>Class 11</option><option>Class 12</option><option>Other</option></select></div>
+      </div>
+      <div id="resourceNotice" class="notice">Sign in or create a student account to view learning resources.</div>
+      <div id="resourceGrid" class="resource-grid"></div>
+    </section>
+
+    <section class="about section" id="about"><div><span class="eyebrow">A BETTER WAY TO STUDY</span><h2>Good learning begins with the right guidance.</h2></div><p>Gyan Guardian Knowledge Networks brings learning resources together in a simple, organised space. Students can focus on understanding; administrators keep the library useful and up to date.</p></section>
+  </main>
+
+  <footer><a class="brand footer-brand" href="#"><span class="brand-mark">GG</span><span>Gyan Guardian<small>KNOWLEDGE NETWORKS</small></span></a><span>Learn today. Lead tomorrow.</span><span>© <span id="year"></span> Gyan Guardian</span></footer>
+
+  <div class="modal-backdrop" id="authModal" hidden><section class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><button class="modal-close" id="closeModal" aria-label="Close">×</button><span class="eyebrow">WELCOME TO GYAN GUARDIAN</span><h2 id="modalTitle">Sign in to continue</h2><p id="modalSub">Access your learning library.</p><form id="authForm"><label>Username<input name="username" autocomplete="username" required minlength="3" maxlength="40"></label><label>Password<input name="password" type="password" autocomplete="current-password" required minlength="8"></label><button class="btn btn-primary btn-large" type="submit" id="authSubmit">Sign in</button><div class="form-error" id="authError" role="alert"></div></form><p class="switch-auth" id="switchAuth">New here? <button type="button" class="inline-button" id="switchMode">Create a student account</button></p></section></div>
+
+  <div class="modal-backdrop" id="adminModal" hidden><section class="modal modal-wide" role="dialog" aria-modal="true" aria-labelledby="adminTitle"><button class="modal-close" id="closeAdmin" aria-label="Close">×</button><span class="eyebrow">ADMINISTRATION</span><h2 id="adminTitle">Manage learning resources</h2><form id="contentForm" class="content-form"><input type="hidden" name="id"><label>Resource title<input name="title" required maxlength="160" placeholder="e.g. Algebra — Chapter 1 Notes"></label><label>Description<textarea name="description" rows="3" placeholder="What will students learn?"></textarea></label><div class="form-row"><label>Class<select name="class_level"><option>All</option><option>Class 9</option><option>Class 10</option><option>Class 11</option><option>Class 12</option><option>Other</option></select></label><label>Subject<input name="subject" placeholder="Mathematics"></label><label>Type<select name="resource_type"><option value="note">Study note</option><option value="pdf">PDF</option><option value="video">Video</option><option value="link">External link</option></select></label></div><label>Upload PDF or video (optional)<input type="file" name="resource" accept=".pdf,video/mp4,video/webm,video/quicktime"></label><label>Or resource URL<input name="file_url" placeholder="https://… (PDF / resource link)"></label><label>Video URL (optional)<input name="video_url" placeholder="https://…"></label><button class="btn btn-primary" type="submit">Save resource</button><button class="btn btn-light" type="button" id="cancelEdit">Clear form</button><div class="form-error" id="contentError" role="alert"></div></form><h3 class="manage-heading">Published resources</h3><div id="manageList" class="manage-list"></div></section></div>
+  <script src="/app.js"></script>
+</body>
+</html>
